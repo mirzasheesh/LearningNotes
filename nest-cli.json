@@ -1,0 +1,8 @@
+{
+    "sourceRoot": "src",
+    "compilerOptions": {
+        "assets": ["**/*.proto"],
+        "watchAssets": true,
+        "deleteOutDir": true
+    }
+}

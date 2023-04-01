@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package orderService;
+
+service Order {
+  rpc Create (OrderRequest) returns (stream OrderStatusUpdate) {}
+  rpc Process (ProcessRequest) returns (stream OrderStatusUpdate) {}
+  rpc Deliver (DeliveryRequest) returns (stream OrderStatusUpdate) {}
+}
+
+message OrderRequest {
+  uint32 orderValue = 1;
+}
+
+message ProcessRequest {
+  uint32 receiptID = 1;
+}
+
+message DeliveryRequest {
+  uint32 orderID = 1;
+}
+
+message OrderStatusUpdate {
+  string status = 0;
+}
